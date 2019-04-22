@@ -1,0 +1,178 @@
+.content {
+    padding-bottom: 320px;
+}
+
+/* product list */
+
+.group-name {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    border: 1px solid #ebebeb;
+    background: #f3f3f3;
+    font-size: 18px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    cursor: default;
+    /*border-radius: 2px;
+    box-shadow: 0 0 5px #afadad;*/
+}
+
+.notFound {
+    margin-left: 300px;
+}
+
+.product-list {
+    background-color: white;
+    /*border: 1px solid #eaecec;*/
+    margin-left: 320px;
+}
+
+.product-list ul {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ebebeb;
+    /*border-radius: 2px;
+    box-shadow: 0 0 5px #afadad;*/
+}
+
+.product-item {
+    list-style-type: none;
+    border-bottom: 1px solid #ebebeb;
+    /*width: 100%;*/
+    min-height: 150px;
+}
+
+.product-item:hover {
+    box-shadow: 0 0 5px #afadad;
+}
+
+.product-list ul li:last-child {
+    border-bottom: 0;
+}
+
+.item-img {
+    float: left;
+    width: 20%;
+    height: 150px;
+    position: relative;
+}
+
+.img-product {
+    max-height: 120px;
+    min-height: 75px;
+    max-width: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.item-info {
+    float: left;
+    width: 58%;
+}
+
+.item-price {
+    float: left;
+    width: 22%;
+}
+
+.info-description {
+    padding: 0 10px 0 5px;
+}
+
+.info-description .h4 a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.info-description .text {
+    /*padding-right: 10px;*/
+    font-size: 14px;
+}
+
+.price-average {
+    color: #ff5200;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.price-range, .price-offer {
+    font-size: 12px;
+}
+
+.price-offer {
+    color: #9E9E9E;
+}
+
+.button-compare input {
+    background-color: #ff5200;
+    width: 95%;
+    border: 0;
+    border-radius: 2px;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.container__second-block {
+    position: absolute;
+    bottom: 270px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.line-pages {
+    background: #fff;
+    /*height: 30px;*/
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    /*border-radius: 2px;
+    box-shadow: 0 0 5px #afadad;*/
+}
+
+/*.prev, .next {
+    font-size: 22px;
+}*/
+
+.pages, .prev, .next {
+    text-decoration: none;
+    min-width: 30px;
+    line-height: 30px;
+    border-right: 1px solid #cacaca;
+    float: left;
+    display: block;
+    color: #4a4a4a;
+    padding: 1px;
+}
+
+.three-point {
+    pointer-events: none;
+}
+
+.line-pages > a:hover {
+    background-color: #dadada;
+}
+
+.active {
+    background-color: #a2a2a2;
+    color: #fff;
+    pointer-events: none;
+}
+
+.inactive {
+    pointer-events: none;
+    color: #cacaca;
+}
+
+.line-pages:last-child {
+    border-right: 0;
+}

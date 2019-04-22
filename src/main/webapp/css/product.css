@@ -1,0 +1,284 @@
+/* PRODUCT VIEW */
+
+#container__menu {
+    position: relative;
+}
+
+#menu {
+    position: absolute;
+    /*display: none;*/
+    z-index: 100;
+    left: 5px;
+    top: -9999px;
+}
+
+.content {
+    padding-bottom: 300px;
+}
+
+.product-resume {
+    background: #fff;
+    height: 250px;
+    display: table;
+    margin-bottom: 20px;
+    border: 1px solid #ebebeb;
+    width: 100%;
+}
+
+.gallery-box {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 35%;
+    padding: 20px;
+}
+
+.gallery-box img {
+   /* max-height: 200px;*/
+}
+
+.info-box {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: table-cell;
+}
+
+.info-box > * {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.price-range {
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+}
+
+.price-range__price {
+    color: #ff5200;
+    font-size: 26px;
+}
+
+.price-range:hover {
+    border-bottom-color: #ff5200;
+}
+
+.price-range__title {
+
+}
+
+.currency {
+    color: #2f2f2f;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.dash {
+    color: #2f2f2f;
+    font-weight: normal;
+}
+
+.resume-info {
+    font-size: 14px;
+}
+
+.head-product-tabs {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-bottom: none;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.head-product-tabs .cell-img {
+    font-weight: bold;
+}
+
+.product-tabs {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    font-size: 14px;
+}
+
+.offer {
+    min-height: 80px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.offer:hover {
+    box-shadow: 0 0 5px #afadad;
+}
+
+.offer:last-child {
+    border: none;
+}
+
+.shop-box {
+    float: left;
+    width: 22%;
+    min-height: inherit;
+}
+
+.cell-img {
+    float: left;
+    width: 45%;
+}
+
+.cell-shop {
+    float: left;
+    width: 55%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    min-height: inherit;
+    position: relative;
+}
+
+.cell-shop img {
+    max-height: 14px;
+    vertical-align: middle;
+}
+
+.shop-name {
+    max-height: 65px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-weight: bold;
+}
+
+.resource-src {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+.img-shop {
+    max-height: 70px;
+    max-width: 90%;
+    padding: 10px;
+}
+
+.product-box {
+    float: left;
+    width: 78%;
+    min-height: inherit;
+}
+
+.description-box {
+    float: left;
+    /*overflow: hidden;*/
+    width: 60%;
+    /*max-height: 70px;*/
+    /*padding: 10px 0;*/
+}
+
+.description-box:after {
+    content: ".";
+    opacity: 0;
+}
+
+.product-img {
+    float: left;
+    width: 20%;
+    /*padding-left: 20px;*/
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.product-img img {
+    min-height: 55px;
+    max-height: 70px;
+    max-width: 100%;
+}
+
+.price-box {
+    float: left;
+    width: 20%;
+    min-height: inherit;
+    position: relative;
+}
+
+.price-box .price {
+    color: #ff5200;
+    /*padding-top: 10px;*/
+    font-size: 24px;
+}
+
+.btn-buy {
+    background: #ff5200;
+    height: 25px;
+    line-height: 25px;
+    width: 90%;
+    color: #fff;
+    text-transform: uppercase;;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 2px;
+    bottom: 0px;
+    position: absolute;
+}
+
+/*css from vseceni.ua for tables*/
+.pb-body-content > table {
+    width: 100%;
+}
+
+.pb-body-content tr:first-child .pb-bc-head {
+    padding-top: 0;
+}
+
+.pb-body-content tr > td {
+    padding: 0;
+}
+
+.pb-bc-row > td {
+    padding-bottom: 5px;
+}
+
+.pb-bc-head {
+    color: #333;
+    /* font-weight: bold; */
+    font-size: 18px;
+}
+
+table td {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.pb-bc-head {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.pb-bc-row {
+    overflow: hidden;
+    margin-bottom: 5px;
+    background: url(../img/dotted.png) left 13px repeat-x;
+}
+
+.pb-body-content .pb-bc-row > td {
+    padding-bottom: 5px;
+}
+
+.pb-bc-r-left {
+    float: left;
+    background-color: #fff;
+    padding-right: 2px;
+    color: #999999;
+}
+
+.pb-bc-r-right {
+    float: right;
+    background-color: #fff;
+    width: 60%;
+    text-indent: 2px;
+    padding-left: 0px;
+}
+

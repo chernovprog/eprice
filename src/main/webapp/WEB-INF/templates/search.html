@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}">
+    <title>[[${pageInfo.title}]] - купить на EPrice</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/productList.css}">
+    <link rel="stylesheet" th:href="@{/css/media.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body class="clearfix">
+<header class="header" id="header">
+    <div class="header-first-line">
+        <div class="header-logo">
+            <a href="/">
+                <img th:src="@{/img/logo.png}" alt="EPrice">
+            </a>
+        </div>
+        <div class="search-line">
+            <form action="/search/" method="GET">
+                <input type="text" id="searchbox" name="query" value=" ... хочу купить" maxlength="50">
+                <button type="submit"><i class="fas fa-search fa-lg"></i></button>
+            </form>
+        </div>
+        <div class="enter-line">
+            <i class="far fa-user-circle fa-2x"></i><span>&nbsp;Вход</span>
+        </div>
+    </div>
+    <div class="header-second-line">
+        <span class="dropdown-menu-box" id="dropdown-menu">
+            <span class="dropdown-menu-text">Каталог товаров&nbsp;&nbsp;</span>
+            <i id="dropdown-menu-sign" class="fas fa-angle-down fa-lg"></i>
+        </span>
+    </div>
+</header>
+<div id="container__menu">
+    <nav class="clearfix" id="menu">
+        <ul class="menu-icons">
+            <li th:each="market : ${menu}"><i th:class="${market.icon}"></i></li>
+        </ul>
+        <ul class="menu">
+            <li class="menu-list menu-list-1" th:each="market : ${menu}">
+
+                <div class="menu-list-box">
+                    <span class="menu-list__inner-line">
+                        <span class="menu-name" th:text="${market.name}"></span>
+                        <span class="sign-more"><i class="fas fa-angle-right fa-lg"></i></span>
+                    </span>
+                </div>
+
+                <ul class="drop-menu drop-menu-1">
+                    <li class="menu-list menu-list-2" th:each="rubric : ${market.rubrics}">
+                        <div class="menu-list-box">
+                            <span class="menu-list__inner-line">
+                                <span class="menu-name" th:text="${rubric.name}"></span>
+                                <span class="sign-more"><i class="fas fa-angle-right fa-lg"></i></span>
+                            </span>
+                        </div>
+                        <ul class="drop-menu drop-menu-2">
+                            <li class="menu-list" th:each="group : ${rubric.groups}">
+                                <a th:href="${group.url}">
+                                    <span class="menu-name" th:text="${group.name}"></span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <ul class="breadcrumbs">
+        <li th:each="item : ${pageInfo.breadcrumbs}">
+            <a th:href="${item.url}" th:text="${item.name}" th:if="${item.url} != null"></a>
+            <span th:text="${item.name}" th:if="${item.url} == null"></span>
+            <i class="fas fa-angle-right" th:if="${!itemStat.last}"></i>
+        </li>
+    </ul>
+    <div class="container__first-block clearfix">
+        <div class="group-name">
+            <span th:text="${pageInfo.category}">Смартфоны</span>
+        </div>
+
+        <!-- <div class="notFound" th:text="${notFound}" th:unless="${#strings.isEmpty(notFound)}"></div>-->
+
+        <div class="product-list">
+            <ul>
+                <li class="product-item clearfix" th:each="prod : ${productList}">
+
+                    <div class="item-img">
+                        <a th:href="${prod.url}" th:target="(${prod.quantityOffers} eq 1) ? '_blank'">
+                            <img class="img-product" th:src="${prod.imgS}" th:alt="${prod.name}"
+                                 th:title="|Фото ${prod.name}|"/>
+                        </a>
+                    </div>
+
+                    <div class="item-info">
+                        <div class="info-description">
+                            <p class="h4">
+                                <a th:href="${prod.url}" th:target="(${prod.quantityOffers} eq 1) ? '_blank'">
+                                    <span class="product__name" th:text="${prod.name}"
+                                          th:title="|Цены на ${prod.name}|">Gorenje K634XA</span>
+                                </a>
+                            </p>
+                            <div class="text" th:utext="${prod.desc}"><p>Комбинированная плита <span
+                                    class="graphite">•</span> поверхность: газовая <span class="graphite">•</span>
+                                духовка: электрическая <span class="graphite">•</span> рабочая поверхность: нержавеющая
+                                сталь <span class="graphite">•</span> количество газовых конфорок: 4 <span
+                                        class="graphite">•</span> крышка: стеклянная <span class="graphite">•</span>
+                                размеры (ВхШхГ): 85x60x60 см <span class="graphite">•</span> нержавеющая сталь <span
+                                        class="graphite">•</span>&nbsp;04.2018 </p></div>
+                        </div>
+                    </div>
+
+                    <div class="item-price">
+                        <p class="item-price__title">Средняя цена:</p>
+                        <p class="price-average"
+                           th:text="|${#numbers.formatInteger(prod.priceAverage, 0, 'WHITESPACE')} ${prod.currency}|">34
+                            749 грн</p>
+                        <!--<p class="price-range">33 999 – 34 999 грн</p>-->
+                        <p class="price-offer" th:if="${prod.quantityOffers} &gt; 0">Всего предложений
+                            <span class="quantity-offers">([[${prod.quantityOffers}]])</span></p>
+                        <div class="button-compare">
+                            <a th:href="${prod.url}" th:target="(${prod.quantityOffers} eq 1) ? '_blank'">
+                                <input type="submit"
+                                       th:value="(${prod.quantityOffers} gt 1) ? 'Сравнить цены' : 'Купить'">
+                            </a>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container__second-block">
+        <div class="line-pages" id="pagination" th:unless="${#lists.isEmpty(pageInfo.pagination.rangePages)}">
+            <a class="prev" href="#"><i class="fas fa-angle-left fa-lg"></i></a>
+            <a th:class="(${pageIndex} eq ${pageInfo.pagination.activePageNumber}) ? 'pages active' : 'pages'"
+               th:each="pageIndex : ${pageInfo.pagination.rangePages}" th:href="@{${pageInfo.path}(query=${query},page=${pageIndex})}"
+               th:text="${pageIndex}">1</a>
+            <span th:if="${not #lists.isEmpty(pageInfo.pagination.numberLastPage)}">
+                <span class="pages three-point">...</span>
+                <a class="pages last-page" th:href="@{${pageInfo.path}(query=${query},page=${pageInfo.pagination.numberLastPage})}"
+                   th:text="${pageInfo.pagination.numberLastPage}"></a>
+            </span>
+            <a class="next" href="#"><i class="fas fa-angle-right fa-lg"></i></a>
+        </div>
+    </div>
+</div>
+<footer class="footer" id="footer">
+    <div class="credits">
+        <div class="footer-left">
+            <div>
+                <a href="/">
+                    <img class="footer-logo" th:src="@{/img/logo.png}" alt="EPrice">
+                </a>
+            </div>
+            <div>
+                <p>Будьте на связи</p>
+                <p class="social-icons"><i class="fab fa-facebook-square fa-lg"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube-square"></i>
+                </p>
+            </div>
+            <div><p>© EPrice 2019</p></div>
+        </div>
+        <div class="footer-center">
+            <div class="footer-center__left">
+                <h4>ПОЛЬЗОВАТЕЛЯМ</h4>
+                <p>Регистрация</p>
+                <p>Пользовательское соглашение</p>
+                <p>Правила безопасности</p>
+                <p>Надежные мнения</p>
+                <p>Как покупать за рубежом</p>
+                <p>Производители</p>
+            </div>
+            <div class="footer-center__center">
+                <h4>МАГАЗИНАМ И ПАРТНЕРАМ</h4>
+                <p>Стать партнером</p>
+                <p>Бизнес-раздел</p>
+                <p>Разместить баннера</p>
+                <p>Разместить рекламу</p>
+                <p>Разместить услуги</p>
+                <p>Бизнес-новости</p>
+            </div>
+            <div class="footer-center__right">
+                <h4>КОНТАКТЫ</h4>
+                <p>О проекте</p>
+                <p>Обратная связь</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="top"><i class="fas fa-angle-double-up fa-2x"></i></div>
+<script th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/productList.js}"></script>
+</body>
+</html>
