@@ -44,7 +44,7 @@ public class ProductPriceuaService {
     }
 
     private Document getDocumentByProductName(String keyWord) {
-        String source = "https://price.ua/search/?q=" + keyWord;
+        String source = "https://price.ua/search/?q=" + URLEncoding(keyWord);
         Document doc = null;
         try {
             doc = Jsoup.connect(source).get();
@@ -53,6 +53,10 @@ public class ProductPriceuaService {
             logger.error("HTTP error fetching URL. Status=404. Search by keyword on Price.ua. Path=" + source);
         }
         return doc;
+    }
+
+    private String URLEncoding(String keyWord) {
+        return keyWord.replaceAll(" ", "%20").replaceAll("&", "%26");
     }
 
     private Element getFirstProductFromSearchResult(Document doc) {
