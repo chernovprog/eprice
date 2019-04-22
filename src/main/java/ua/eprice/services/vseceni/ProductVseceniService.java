@@ -40,7 +40,7 @@ public class ProductVseceniService {
     private String getName(Document doc) {
         String name = doc.select("h1 span").html();
         if (name.indexOf("<small>") >= 0) name = name.substring(0, name.indexOf("<small>"));
-        return name;
+        return name.trim();
     }
 
     private Integer getQuantityOffers(Document doc) {
